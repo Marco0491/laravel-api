@@ -52,11 +52,6 @@
                                 <td>
                                     {{ $post->user->created_at }}
                                 </td>
-                                {{-- <td>
-                                    @foreach ($post->categories as $category)
-                                        <span class="badge rounded-pill" style="background-color: {{$category->color}}" >{{$category->name}}</span>
-                                    @endforeach
-                                </td> --}}
                                 <td class="d-flex">
                                     <a href="{{ route("admin.posts.edit", $post) }}" class="btn btn-success btn-sm me-2">Edit</a>
                                     <form action="{{route('admin.posts.destroy', $post)}}" method="POST" class="post-form-destroyer" post-title="{{$post->title}}">

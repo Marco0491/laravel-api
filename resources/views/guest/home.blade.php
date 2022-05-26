@@ -10,37 +10,26 @@
         <title>Laravel Boolpress</title>
     </head>
     <body>
-        <div class="d-flex justify-content-center align-items-center position-relative h-100">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ route('admin.home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-            <div class="text-center">
-                <div class="mb-5">
-                    @if (Auth::check())
-                        <p class="fs-3">Ciao {{Auth::user()->name}}</p>
+        @if (Route::has('login'))
+            <div class="d-flex justify-content-end links mb-5 p-3">
+                @auth
+                    <a href="{{ route('admin.home') }}">Home</a>
+                    <a href="{{ route('admin.posts.index') }}">Post</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}">Register</a>
                     @endif
-                    <h1 class="text-uppercase title">Boolpress</h1>
-                </div>
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                @endauth
             </div>
+        @endif
+        <div class="text-center">
+            <h1 class="text-uppercase title mb-0">Boolpress</h1>
+            @if (Auth::check())
+                <p class="fs-3">Ciao {{Auth::user()->name}}</p>
+            @endif
         </div>
+        <div id="root"></div>
+        <script src="{{asset('js/front.js')}}"></script>
     </body>
 </html>

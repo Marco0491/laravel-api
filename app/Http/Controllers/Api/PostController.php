@@ -15,10 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(20);
-        return response()->json([
-            'result' => $posts,
-        ]);
+        $posts = Post::paginate(15);
+        return response()->json($posts);
     }
 
     /**
@@ -40,9 +38,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return response()->json([
-            'result' => $post,
-        ]);
+        return response()->json($post);
     }
 
     /**
