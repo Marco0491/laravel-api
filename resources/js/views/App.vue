@@ -1,15 +1,19 @@
 <template>
     <div>
-        <h1>work in progress</h1>
+        <PostList/>
     </div>
 </template>
 
 <script>
+import PostList from '../components/PostList.vue';
+
 export default {
     name: 'App',
-    components: {}
+    components: {
+        PostList,
+    }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 </style>
